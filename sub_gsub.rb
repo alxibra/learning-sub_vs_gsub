@@ -18,6 +18,21 @@ Benchmark.ips do |x|
   x.compare!
 end
 
+Benchmark.ips do |x|
+  x.report 'sub' do
+    n.times do
+      'hello world'.sub 'l', '*'
+    end
+  end
+  
+  x.report 'sub!' do
+    n.times do
+      'hello world'.sub! 'l', '*'
+    end
+  end
+  x.compare!
+end
+
 # he*lo world
 # he**o wor*d
 # Warming up --------------------------------------
